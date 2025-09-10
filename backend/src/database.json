@@ -1,5 +1,51 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": "m8wTAR5wgOmOvZLEXhZ2T",
+      "email": "test@test.com",
+      "password": "$2a$10$eQrKMdyEd0p0kandB0CPk.F4NpTn7FiwfXP0Kbn0Em280lctIYJby",
+      "isSubscribed": false,
+      "subscriptionId": null,
+      "referralCode": null,
+      "referredBy": null
+    },
+    {
+      "id": "dE2C9G4ZL0hFGvSjh8XLt",
+      "email": "user1757536985458@demo.app",
+      "password": "$2a$10$rwoASBj0oM5YbJyO3hpfIeIY3twMHhFDT5nScnJEYvAYJtGNgVn7a",
+      "isSubscribed": false,
+      "subscriptionId": null,
+      "referralCode": null,
+      "referredBy": null
+    },
+    {
+      "id": "pZ51hzoAKbMvk02ddpnkA",
+      "email": "user1757537114492@demo.app",
+      "password": "$2a$10$xVvHZPLAOogWba4IRRqv7OjSWw1ZbCL3BOo4o8QLbOlC6M4q02Acu",
+      "isSubscribed": false,
+      "subscriptionId": null,
+      "referralCode": null,
+      "referredBy": null
+    },
+    {
+      "id": "CBfYFoSIwverJOmp0oDDG",
+      "email": "user1757538068914@demo.app",
+      "password": "$2a$10$.qNCsnsmH37DVP2zgAQN5.jGirmkajEUPtWdU.aj1Rtr/azSA8sbu",
+      "isSubscribed": false,
+      "subscriptionId": null,
+      "referralCode": null,
+      "referredBy": null
+    },
+    {
+      "id": "_R17AorFCtLTiNfoZGoAg",
+      "email": "user1757538102583@demo.app",
+      "password": "$2a$10$Zkdj4gZcYrB/hzP5Xm5d0er7lEHLnjSo/IfkY10tzua/u/7W9Mc2q",
+      "isSubscribed": false,
+      "subscriptionId": null,
+      "referralCode": null,
+      "referredBy": null
+    }
+  ],
   "transformations": [],
   "plans": [],
   "referrals": [

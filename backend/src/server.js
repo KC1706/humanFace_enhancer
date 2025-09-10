@@ -13,10 +13,13 @@ import plansRouter from './plans.js';
 import subscriptionsRouter from './subscriptions.js';
 import webhooksRouter from './webhooks.js';
 import feedbackRouter from './feedback.js';
+import { initRepo } from './repo.js';
 
 const require = createRequire(import.meta.url);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = join(__filename, '..');
+
+await initRepo();
 
 const app = express();
 app.use(cors({ origin: process.env.CLIENT_URL || '*'}));

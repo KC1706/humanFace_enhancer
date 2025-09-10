@@ -1,25 +1,20 @@
 import { Router } from 'express';
-import { db, initDb } from './db.js';
 import { authRequired } from './middleware.js';
+import { isReferralValid, setUserReferredBy } from './repo.js';
 
-await initDb();
 const router = Router();
 
 router.post('/validate', async (req, res) => {
   const { code } = req.body || {};
-  await db.read();
-  const valid = !!db.data.referrals.find(r => r.code === code && r.active);
+  const valid = await isReferralValid(code);
   res.json({ valid });
 });
 
 router.post('/apply', authRequired, async (req, res) => {
   const { code } = req.body || {};
-  await db.read();
-  const valid = db.data.referrals.find(r => r.code === code && r.active);
+  const valid = await isReferralValid(code);
   if (!valid) return res.status(400).json({ error: 'Invalid code' });
-  const user = db.data.users.find(u => u.id === req.userId);
-  user.referredBy = code;
-  await db.write();
+  await setUserReferredBy(req.userId, code);
   res.json({ ok: true });
 });
 

@@ -1,16 +1,12 @@
 import { Router } from 'express';
-import { db, initDb } from './db.js';
 import { authRequired } from './middleware.js';
+import { saveNps } from './repo.js';
 
-await initDb();
 const router = Router();
 
 router.post('/nps', authRequired, async (req, res) => {
   const { score = null, comment = '' } = req.body || {};
-  await db.read();
-  const user = db.data.users.find(u => u.id === req.userId);
-  user.nps = { score, comment, at: new Date().toISOString() };
-  await db.write();
+  await saveNps(req.userId, score, comment);
   res.json({ ok: true });
 });
 
