@@ -1,0 +1,15 @@
+{
+  "users": [],
+  "transformations": [],
+  "plans": [],
+  "referrals": [
+    {
+      "code": "9762",
+      "active": true
+    },
+    {
+      "code": "1234",
+      "active": true
+    }
+  ]
+}

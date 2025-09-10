@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "Look",
+    "slug": "look-app",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0F0A2C"
+    },
+    "updates": { "fallbackToCacheTimeout": 0 },
+    "assetBundlePatterns": ["**/*"],
+    "ios": { "supportsTablet": true },
+    "android": { "adaptiveIcon": { "foregroundImage": "./assets/adaptive-icon.png", "backgroundColor": "#0F0A2C" } },
+    "web": { "bundler": "metro", "favicon": "./assets/favicon.png" }
+  }
+}
+
+

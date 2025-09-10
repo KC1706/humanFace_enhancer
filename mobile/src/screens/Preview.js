@@ -1,0 +1,41 @@
+import React, { useEffect, useState } from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
+import BeforeAfterSlider from '../components/BeforeAfterSlider';
+import { useAuth } from '../auth';
+import { createClient } from '../api';
+
+export default function Preview({ navigation }) {
+  const { token } = useAuth();
+  const api = createClient(token);
+  const [trans, setTrans] = useState(null);
+  useEffect(() => {
+    (async () => {
+      try {
+        const r = await api.get('/api/users/me/transformation');
+        setTrans(r.data);
+      } catch (e) {}
+    })();
+  }, []);
+
+  return (
+    <View style={{ flex: 1, backgroundColor: '#1f1447', padding: 24, justifyContent: 'space-between' }}>
+      <View>
+        <Text style={{ color: 'white', fontSize: 22, fontWeight: '700', marginBottom: 8 }}>Preview Your Potential</Text>
+        {trans && (
+          <BeforeAfterSlider beforeUri={trans.beforeImageUrl} afterUri={trans.afterImageUrl || trans.beforeImageUrl} blurredAfter={!trans.afterImageUrl} />
+        )}
+        <Text style={{ color: 'rgba(255,255,255,0.9)', marginTop: 12 }}>Improve your score from {trans?.initialScore?.toFixed?.(1) || '—'} to {trans?.potentialScore ? trans.potentialScore.toFixed(1) : '8.8'}</Text>
+      </View>
+      <View>
+        <TouchableOpacity onPress={() => navigation.navigate('UnlockedLook')} style={{ backgroundColor: 'white', borderRadius: 12, padding: 16, alignItems: 'center' }}>
+          <Text style={{ fontWeight: '700' }}>See My Full Potential</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.replace('Main')} style={{ borderRadius: 12, padding: 16, alignItems: 'center', marginTop: 12 }}>
+          <Text style={{ color: 'white' }}>Maybe Later</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+}
+
+
